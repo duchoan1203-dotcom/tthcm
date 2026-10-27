@@ -1,0 +1,1135 @@
+const fs = require('fs');
+
+const ch6 = [
+  {
+    id: 501,
+    chuong: 6,
+    cauHoi: "Nghị quyết 24C/18.6,5 của Khóa họp 24 Đại hội đồng UNESCO đã khẳng đinh: Chủ tịch Hồ Chí Minh để lại một (...) trong quá trình phát triển của nhân loại vì hòa bình, độc lập dân tộc, dân chủ và tiến bộ xã hội. Xác định cụm từ còn thiếu?",
+    dapAn: [
+      "Đấu ấn",
+      "Hình ảnh",
+      "Hình tượng",
+      "Án tượng"
+    ],
+    dung: "A"
+  },
+  {
+    id: 502,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, văn hóa có vai trò gì trong đời sống xã hội?",
+    dapAn: [
+      "Văn hóa là mục tiêu, động lực của sự nghiệp cách mạng",
+      "Văn hóa là một mặt trận",
+      "Văn hóa phục vụ quần chúng nhân dân",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 503,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, văn hóa là mục tiêu, nghĩa là hướng tới:",
+    dapAn: [
+      "Quyền sống, quyền sung sướng, quyền tự do, quyền mưu cầu hạnh phúc",
+      "Khát vọng về các giá trị chân, thiện, mĩ",
+      "Xã hội dân chủ, công bằng, văn minh",
+      "Tất cà các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 504,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, văn hóa phục vụ quần chúng nhân dân, nghĩa là:",
+    dapAn: [
+      "Mọi hoạt động văn hóa phải trở về với cuộc sống thực tại của quần chúng, phản ánh được tư tưởng, khát vọng của quần chúng",
+      "Miêu tả cho hay, cho chân thật, hùng hồn cuộc sống thực tế của quần chúng, từ đó định hướng giá trị cho quần chúng",
+      "Hiểu và đánh giá đúng quần chúng",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 505,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh yêu cầu về tính dân tộc của nền văn hóa cần phải:",
+    dapAn: [
+      "Giúp phân biệt, không nhầm lẫn với văn hóa của dân tộc khác",
+      "Giữ gìn, kế thừa, phát huy và phát triển truyền thống tốt đẹp của văn hóa dân tộc phù hợp với điều kiện lịch sử của đất nước",
+      "\"Lột tả được tinh thần dân tộc\", \"cốt cách của dân tộc, đặc tính của dân tộc\", đó là truyền thống yêu nước, nhân nghĩa, đoàn kết, khát vọng độc lập, tự chủ, tự cường",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 506,
+    chuong: 6,
+    cauHoi: "Tính khoa học của nền văn hóa theo quan điểm Hồ Chí Minh được thể hiện ở những nội dung nào?",
+    dapAn: [
+      "Tính hiện đại, tiên tiến, thuận với trào lưu tiến hóa của thời đại",
+      "Truyền bá tư tưởng triết học mácxít, đấu tranh chống lại chủ nghĩa duy tâm, thần bí",
+      "Kế thừa truyền thống tốt đẹp của dân tộc, tiếp thu tinh hoa văn hóa nhân loại",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 507,
+    chuong: 6,
+    cauHoi: "Có tinh thần quốc tế trong sáng là một trong những chuẩn mực đạo đức được Hồ Chí Minh coi trọng. Tinh thần quốc tế trong sáng đó là gì?",
+    dapAn: [
+      "Đó là tinh thần đoàn kết với giai cấp vô sản toàn thế giới",
+      "Đó là tinh thần đoàn kết với tất cả các dân tộc và nhân dân các nước",
+      "Đó là tinh thần đoàn kết với tất cả những người tiến bộ trên toàn cầu",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 508,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, chữ \"Chính\" có nghĩa là gì?",
+    dapAn: [
+      "Không ham quyền lực",
+      "Siêng năng, chăm chỉ",
+      "Không tham danh vọng",
+      "Thẳng thắn, đứng đắn"
+    ],
+    dung: "D"
+  },
+  {
+    id: 509,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh đề cập đạo đức trong những quan hệ nào của con người ?",
+    dapAn: [
+      "Đối với mình",
+      "Đối với việc",
+      "Đối với người",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 510,
+    chuong: 6,
+    cauHoi: "Luận điểm: \"Người cán bộ phải có đạo đức cách mạng.... Mọi việc thành hay bại, chủ chốt là do cán bộ có thấm nhuần đạo đức cách mạng, hay là không\"70, được viết trong tác phẩm nào của Hồ Chí Minh ?",
+    dapAn: [
+      "Đời sống mới (1947)",
+      "Cần, Kiệm, Liêm, Chính (1949)",
+      "Người cán bộ cách mạng (1955)",
+      "Đạo đức cách mạng (1958)"
+    ],
+    dung: "C"
+  },
+  {
+    id: 511,
+    chuong: 6,
+    cauHoi: "Luận điểm: \"Đảng cần chăm lo giáo dục đạo đức cách mạng cho đoàn viên và thanh niên, đào tạo họ thành những người thừa kế xây dựng chủ nghĩa xã hội, vừa \"hồng\" vừa \"chuyên\", được viết trong tác phẩm nào của Hồ Chí Minh?",
+    dapAn: [
+      "Thư gửi thanh niên (1965)",
+      "Di chúc (1969)",
+      "Sửa đổi lối làm việc (1947)",
+      "Nâng cao đạo đức cách mạng, quét sạch chủ nghĩa cá nhân (1969)"
+    ],
+    dung: "B"
+  },
+  {
+    id: 512,
+    chuong: 6,
+    cauHoi: "Yếu tố cốt lỗi đầu tiên tạo nên nền tảng tư tưởng đạo đức Hồ Chí Minh là: •",
+    dapAn: [
+      "Tình thương người, yêu đồng loại",
+      "Là ham muốn tột bậc làm sao cho nước ta được hoàn toàn độc lập, dân ta được hoàn toàn tự do, đồng bào ai cũng có cơm ăn, áo mặc, ai cũng được học hành",
+      "Yêu đất nước mình",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 513,
+    chuong: 6,
+    cauHoi: "Trong tình yêu thương con người, Hồ Chí Minh đòi hỏi mỗi người phải:",
+    dapAn: [
+      "Chặt chẽ và nghiêm khắc với mình; rộng rãi, độ lượng và giàu lòng vị tha với người khác",
+      "Rộng rãi độ lượng với mình, giàu lòng vị tha với người khác",
+      "Nghiêm khắc với mình, giàu lòng vị tha với người và dĩ hòa vi quý",
+      "Tất cả các đáp án"
+    ],
+    dung: "A"
+  },
+  {
+    id: 514,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh xem xét con người trong sự thống nhất của hai mặt đối lập nào?",
+    dapAn: [
+      "Thiện và ác, hay và dở",
+      "Tốt và xấu, hiền và dữ",
+      "Mặt xã hội và mặt sinh học",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 515,
+    chuong: 6,
+    cauHoi: "Để có những con người Việt Nam mới, theo Hồ Chí Minh phải có những phương pháp xây dựng con người như thế nào?",
+    dapAn: [
+      "Nêu gương người tốt, việc tốt",
+      "Chú trọng đến giáo dục",
+      "Chú trọng vai trò của tổ chức Đảng, chính quyền, đoàn thể quần chúng",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 516,
+    chuong: 6,
+    cauHoi: "Học tập theo tư tưởng Hồ Chí Minh về xây dựng con người, Hội nghị lần thứ 5 Ban chấp hành Trung ương khóa VIII (7/1998) đã nêu nhiệm vụ xây dựng con người Việt Nam trong thời kì đẩy mạnh công nghiệp hóa, hiện đại hóa với những phẩm chất nào?",
+    dapAn: [
+      "Có tinh thần yêu nước, tự cường dân tộc",
+      "Có ý thức tập thể, đoàn kết, phấn đấu vì lợi ích chung",
+      "Có lối sống lành mạnh, nếp sống văn minh, cần kiệm, trung thực",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 517,
+    chuong: 6,
+    cauHoi: "Tại sao phải học tập và làm theo đạo đức Hồ Chí Minh trong giai đoạn hiện nay?",
+    dapAn: [
+      "Là đòi hỏi của sự nghiệp cách mạng, sự nghiệp đổi mới đất nước và hội nhập quốc tế",
+      "Nhằm làm cho mỗi người trở thành công dân tốt hơn, xứng đáng là những người làm chủ đất nước, biết trọng danh dự, lương tâm, trách nhiệm",
+      "Góp phần tích cực vào cuộc đấu tranh chống suy thoái về tư tưởng, chính trị, đạo đức, lối sống trong Đảng và trong xã hội",
+      "Tất cả đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 518,
+    chuong: 6,
+    cauHoi: "Học tập đạo đức cách mạng của Hồ Chí Minh về phẩm chất trung với nước, hiếu với dân là học ở Người về:",
+    dapAn: [
+      "Một con người trọn đời vì nước vì dân",
+      "Khí phách anh hùng, ý chí độc lập tư cường",
+      "Kiên trì mục tiêu, lý tưởng, không chịu khuất phục trước mọi kẻ thủ",
+      "Tất cả các đáp án"
+    ],
+    dung: "D"
+  },
+  {
+    id: 519,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh khẳng định: \"Vì lẽ sinh tồn cũng như mục đích của cuộc sống, loài người mới sáng tạo và phát minh ra ngôn ngữ, chữ viết, đạo đức, pháp luật, v. v.. cho đến những phương thức sinh hoạt, v. v.. nhằm thích ứng những nhu cầu (...)\"71. Xác định cụm từ còn thiếu?",
+    dapAn: [
+      "Đời sống và những khát vọng tự do",
+      "Đời sống và đòi hỏi của sự sinh tồn",
+      "Đời sống và hạnh phúc của con người",
+      "Đời sống và sự ấm no của nhân dân"
+    ],
+    dung: "B"
+  },
+  {
+    id: 520,
+    chuong: 6,
+    cauHoi: "Khi tiếp cận văn hóa ở nghĩa rộng, Hồ Chí Minh khẳng định văn hóa là gì?",
+    dapAn: [
+      "Là tổng hợp mọi phương thức sinh hoạt của con người",
+      "Là tổng hợp mọi hoạt động giáo dục đào tạo của con người",
+      "Là tổng hợp mọi hoạt động văn nghệ, thể dục thể thao của con người",
+      "Là tổng hợp mọi hoạt động vui chơi, giải trí của con người"
+    ],
+    dung: "A"
+  },
+  {
+    id: 521,
+    chuong: 6,
+    cauHoi: "Từ sau Cách mạng tháng 8/1945, Hồ Chí Minh có bàn đến văn hóa nhưng theo ý nghĩa nào?",
+    dapAn: [
+      "Văn hóa là hiện tượng thuần tuý của tinh thần xã hội",
+      "Đồng nhất văn hóa với văn học - nghệ thuật trong xã hội",
+      "Văn hóa là đời sống vật chất của xã hội",
+      "Văn hóa là kiến trúc thượng tầng, là toàn bộ đời sống tinh thần của xã hội"
+    ],
+    dung: "D"
+  },
+  {
+    id: 522,
+    chuong: 6,
+    cauHoi: "Trong bài thơ Lịch sử nước tà, Hồ Chí Minh viết: \"Dân ta phải biết (...), cho tường (...) nước nhà Việt Nam\". Xác định các cụm từ còn thiếu?",
+    dapAn: [
+      "Truyền thống/ lịch sử",
+      "Đồng lòng/ Dấu tích",
+      "Khát vọng/ Di tích",
+      "Sử ta/ gốc tích"
+    ],
+    dung: "D"
+  },
+  {
+    id: 523,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh khẳng định: ở nước Việt Nam thuộc địa, văn hóa có mối quan hệ thế nào với chính trị ?",
+    dapAn: [
+      "Văn hóa có được giải phóng thì chính trị mới được giải phóng",
+      "Chính trị giải phóng mở đường cho văn hóa phát triển",
+      "Chính trị, xã hội có được giải phóng thì văn hóa mới được giải phóng",
+      "Chính trị, kính tế có được giải phóng thì văn hóa mới được giải phóng"
+    ],
+    dung: "B"
+  },
+  {
+    id: 524,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, văn hóa không thể đứng ngoài mà phải ở trong chính trị, tức là:",
+    dapAn: [
+      "Văn hóa phải phục vụ nhiệm vụ chính trị",
+      "Văn hóa phải là đời sống tinh thần của xã hội",
+      "Văn hóa thực hiện nhiệm vụ phò chính, trừ tà",
+      "Văn hóa một mặt trận và quan trọng như các mặt trận khác"
+    ],
+    dung: "A"
+  },
+  {
+    id: 525,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, văn hóa không thể đứng ngoài mà phải đứng trong kinh tế, nghĩa là:",
+    dapAn: [
+      "Văn hóa phụ thuộc hoàn toàn vào kinh tế, kinh tế quyết định văn hóa",
+      "Văn hóa không phụ thuộc hoàn toàn vào kinh tế, mà có vai trò tác động tích cực trở lại kinh tế",
+      "Văn hóa và kinh tế có sự tác động quan lại lẫn nhau, tạo thành nền tảng đời sống vật chất của xã hội",
+      "Kinh tế không phụ thuộc vào văn hóa, mà kinh tế có vai trò tác động tích cực trở lại văn hóa"
+    ],
+    dung: "B"
+  },
+  {
+    id: 526,
+    chuong: 6,
+    cauHoi: "Xã hội thế nào, văn nghệ thế ấy. Văn nghệ của dân tộc ta vốn rất phong phú, nhưng dưới chế độ thực dân và phong kiền, nhân dân ta bị nô lệ, thì văn nghệ cũng bị..., không thể phát triển được. Hoàn thiện câu nói của Hồ Chí Minh?",
+    dapAn: [
+      "Nô dịch, bị đồng hóa",
+      "Nô lệ, kém phát triển",
+      "Nô lệ, bị tồi tàn",
+      "Nô lệ, bị đồng hóa"
+    ],
+    dung: "C"
+  },
+  {
+    id: 527,
+    chuong: 6,
+    cauHoi: "Bản sắc văn hóa dân tộc theo quan điểm của Hồ Chí Minh được nhìn nhận qua 2 lớp thể hệ, bao gồm:",
+    dapAn: [
+      "Hình thức và nội dung",
+      "Hình thức và tính chất",
+      "Nội dung và nguyên tắc",
+      "Tính chất và nguyên tắc"
+    ],
+    dung: "A"
+  },
+  {
+    id: 528,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, về nội dung của bản sắc văn hóa dân tộc được biểu hiện như thế nào?",
+    dapAn: [
+      "Ở lòng yêu nước, thương nòi; tinh thần độc lập, tự cường, tự tôn dân tộc",
+      "Ở lòng yêu nước, thương dân; tinh thần hữu nghị với các nước trên thế giới",
+      "Ở lòng yêu nước, thương những người bị áp bức, bóc lột",
+      "Ở lòng yêu nước, yêu chế độ xã hội chủ nghĩa; khát vọng hòa bình, giàu mạnh"
+    ],
+    dung: "A"
+  },
+  {
+    id: 529,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, hình thức, cốt cách văn hóa dân tộc được biểu hiện:",
+    dapAn: [
+      "Ở ngôn ngữ, phong tục, tập quán, lễ hội, truyền thống, cách cảm và nghĩ",
+      "Ở cách nói, cách viết, các diễn đạt của các tác phẩm văn hóa văn nghệ",
+      "Ở lối sống, đạo đức, nhân cách của con người Việt Nam",
+      "Ở triết lý giáo dục Việt Nam trong thời kỳ đất nước độc lập"
+    ],
+    dung: "A"
+  },
+  {
+    id: 530,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh yếu tố nào là ngọn nguồn đi tới chủ nghĩa Mác - Lênin?",
+    dapAn: [
+      "Văn hóa phương Đông",
+      "Văn hóa phương Tây",
+      "Đạo đức truyền thống",
+      "Bản sắc văn hóa dân tộc"
+    ],
+    dung: "D"
+  },
+  {
+    id: 531,
+    chuong: 6,
+    cauHoi: "Trước Cách mạng tháng Tám năm 1945, Hồ Chí Minh có quan điểm xây dựng nền văn hóa mới với định hướng về tâm lý là gì?",
+    dapAn: [
+      "Tinh thần vì nước quên mình, vì lợi ích chung quên lợi ích riêng",
+      "Tinh thần làm chủ",
+      "Tinh thần học tập, nâng cao trình độ chuyên môn, nghiệp vụ",
+      "Tinh thần độc lập tự cường"
+    ],
+    dung: "D"
+  },
+  {
+    id: 532,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, mặt trận văn hóa là cuộc chiến đấu trên lĩnh vực văn hóa; vì vậy anh chị em văn nghệ sĩ là (..) trên mặt trận ấy; cũng như các chiến sĩ khác, chiến sĩ nghệ thuật có nhiệm vụ (...) Tổ quốc, phục vụ nhân dân. Xác định cụm từ còn thiếu?",
+    dapAn: [
+      "Chiến sĩ/phục vụ",
+      "Chiến sĩ/phụng sự",
+      "Lãnh đạo/phục vụ",
+      "Lãnh đạo/phụng sự"
+    ],
+    dung: "B"
+  },
+  {
+    id: 533,
+    chuong: 6,
+    cauHoi: "Trước Cách mạng tháng Tám năm 1945, Hồ Chí Minh có quan điểm xây dựng nền văn hóa mới với định hướng về luân lý là gì?",
+    dapAn: [
+      "Tinh thần độc lập tự cường",
+      "Biết hi sinh mình, làm lợi cho quân chúng",
+      "Mọi sự nghiệp liên quan đến phúc lợi của cá nhân phải được đảm bảo",
+      "Dân quyền"
+    ],
+    dung: "B"
+  },
+  {
+    id: 534,
+    chuong: 6,
+    cauHoi: "Luận điểm: \"Cũng như sông thì có nguồn mới có nước, không có nguồn thì sông cạn. Cây phải có gốc, không có gốc thì cây héo. Người cách mạng phải có (...), không có (...) thì dù tài giỏi mấy cũng không lãnh đạo được nhân dân\"2. Xác định cụm từ còn thiếu ?",
+    dapAn: [
+      "Tình thương",
+      "Lòng nhân ải",
+      "Đạo đức",
+      "Liêm"
+    ],
+    dung: "C"
+  },
+  {
+    id: 535,
+    chuong: 6,
+    cauHoi: "Luận điểm: \"Sức có mạnh mới gánh được nặng và đi được xa. Người cách mạng phải có đạo đức cách mạng làm nền tăng, mới hoàn thành được (.)73, Xác định cụm từ thiếu?",
+    dapAn: [
+      "Nhiệm vụ cách mạng vẻ vang",
+      "Nhiệm vụ xây dựng đất nước",
+      "Nhiệm vụ mới của đất nước",
+      "Nhiệm vụ xây dựng đời sống mới"
+    ],
+    dung: "A"
+  },
+  {
+    id: 536,
+    chuong: 6,
+    cauHoi: "Phẩm chất đạo đức bao trùm nhất trong quan điểm Hồ Chí Minh về những chuẩn mực đạo đức cách mạng là gì?",
+    dapAn: [
+      "Trung với nước, hiếu với dân",
+      "Cần kiệm, liêm, chính, chí công vô tư",
+      "Có tình yêu thương con người, sống có tình có nghĩa",
+      "Có tinh thần quốc tế trong sáng"
+    ],
+    dung: "A"
+  },
+  {
+    id: 537,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh chỉ ra rằng: \"Mỗi con người đều có thiện và ác ở trong lòng. Ta phải biết làm cho phần tốt ở trong mỗi con người (..), đó là thái đội của người cách mạng\"74. Xác định cụm từ còn thiếu trong dấu ngoặc đơn?",
+    dapAn: [
+      "Này nở như hoa mùa Xuân và phần xấu bị mất dần đi",
+      "Nảy nở như hoa mùa Hè và phần xấu bị mất dần đi",
+      "Nảy nở như hoa mùa Thu và phần xấu bị mất dần đi",
+      "Nảy nở như hoa mùa Đông và phần xấu bị mất dần đi"
+    ],
+    dung: "A"
+  },
+  {
+    id: 538,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, chữ \"Cần\" được hiểu như thế nào?",
+    dapAn: [
+      "Lao động siêng năng, chăm chỉ, không lười biếng, không ỉ lại vào người khác; thông qua lao động để giao tiếp với mọi người đề hoàn thiện bản thân",
+      "Lao động cần cù, siêng năng; có kế hoạch, sáng tạo, năng suất cao; lao động với tinh thần tự lực cách sinh, không lười biếng",
+      "Lao động chăm chỉ, coi lao động là vinh quang, là động lực, là niềm vui nên luôn tích cực, chủ động trong lao động",
+      "Lao động cần củ; xem tao động là niềm vui, niềm hạnh phúc; chủ động, tích cực trong lao động; lấy lao động làm thước đo giá trị ở mỗi người"
+    ],
+    dung: "B"
+  },
+  {
+    id: 539,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, chữ \"Liêm\" có nghĩa là: \"Không tham địa vị. Không tham (...). Không tham (...). Không ham người (...) mình. Chỉ có một thứ ham là ham học, ham làm, ham tiến bộ\"7. Xác dịnh cụm từ còn thiếu?",
+    dapAn: [
+      "Quyền lực/ giàu sang/ tâng bốc",
+      "Tiền tài/ sung sướng/ tâng bốc",
+      "Đanh vọng/ quyền lực/ xu nịnh",
+      "Chức vụ/ giàu sang/ xu nịnh"
+    ],
+    dung: "B"
+  },
+  {
+    id: 540,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, yếu tố nào sau đây được xem là quý trọng nhất?",
+    dapAn: [
+      "Vốn",
+      "Khoa học, kỹ thuật",
+      "Con người",
+      "Tài nguyên, khoáng sản."
+    ],
+    dung: "C"
+  },
+  {
+    id: 541,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh viết: \"Vô luận việc gì, đều do (...) làm ra, từ nhỏ đến to, từ gần đến xa, đều thế cả\"7. Xác dịnh cụm từ còn thiếu?",
+    dapAn: [
+      "Nông dân",
+      "Công nhân",
+      "Người",
+      "Con người"
+    ],
+    dung: "C"
+  },
+  {
+    id: 542,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh yêu cầu: \"Việc dễ mấy không có (...) cũng chịu, việc khó mấy có (...) liệu cũng xong\". Xác định cụm từ còn thiều?",
+    dapAn: [
+      "Dân- Nhân dân",
+      "Nhân dân- Dân",
+      "Nhân dân- Nông dẫn",
+      "Dân- Công nhân"
+    ],
+    dung: "B"
+  },
+  {
+    id: 543,
+    chuong: 6,
+    cauHoi: "Chọn đáp án đúng nhất với quan điểm của Hồ Chí Minh về chủ thể sáng tạo ra mọi giá trị vật chất, tinh thần cho xã hội là?",
+    dapAn: [
+      "Nông dân",
+      "Công nhân",
+      "Trí thức",
+      "Nhân dân"
+    ],
+    dung: "D"
+  },
+  {
+    id: 544,
+    chuong: 6,
+    cauHoi: "Để xây dựng được con người vừa hồng vừa chuyên, Hồ Chí Minh chú trọng đến lĩnh vực gì ?",
+    dapAn: [
+      "Kinh tế",
+      "Giáo dục",
+      "Chính trị",
+      "Văn hóa - xã hội"
+    ],
+    dung: "B"
+  },
+  {
+    id: 545,
+    chuong: 6,
+    cauHoi: "Dưới ánh sáng tư tưởng Hồ Chí Minh, Cương lĩnh xây dựng đất nước (2011) của Đảng đã khẳng định: \"Con người là (...) phát triển, đồng thời là (...) phát triển. Tôn trọng và bảo vệ quyền con người, gắn quyền con người với quyền và lợi ích của dân tộc, đất nước và quyền làm chủ của nhân dân\". Xác định cụm từ còn thiếu?",
+    dapAn: [
+      "Trung tâm của chiến lược/ chủ thể",
+      "Trọng tâm của chiến lược/ chủ thể",
+      "Quan trọng của chiến lược/ chủ thể",
+      "Then chốt của chiến lược/ chủ thể"
+    ],
+    dung: "A"
+  },
+  {
+    id: 546,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, bản sắc văn hóa dân tộc được hiểu thế nào?",
+    dapAn: [
+      "Những giá trị bền vững của cộng đồng các dân tộc Việt Nam như yêu nước, tinh thần độc lập tự cường, tự tôn dân tộc",
+      "Những giá trị văn hóa bền vững của cộng đồng các dân tộc Việt Nam; là thành quả của quá trình lao động, sản xuất chiến đấu và giao lưu của con người Việt Nam",
+      "Những giá trị văn hóa bền vững, là thành quả của quá trình lao động, sản xuất, chiến đấu của cộng đồng người Việt Nam",
+      "Những giá trị bền vững của cộng đồng các dân tộc Việt Nam. Được nhìn nhận qua 2 lớp thế hệ"
+    ],
+    dung: "B"
+  },
+  {
+    id: 547,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, giữ gìn bản sắc văn hóa dân tộc phải đi đôi với tiếp thu tinh hoa văn hóa nhân loại. Tuy nhiên, để giữa giữ gìn cốt cách văn hóa dân tộc với tiếp thu văn hóa nhân loại cần phải có điều kiện gì?",
+    dapAn: [
+      "Lấy văn hóa dân tộc làm gốc",
+      "Lấy văn hóa dân tộc làm nền tảng",
+      "Lấy văn hóa dân tộc làm then chốt",
+      "Lấy văn hóa dân tộc làm chỗ dựa"
+    ],
+    dung: "A"
+  },
+  {
+    id: 548,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, nội dung tiếp thu tinh hoa văn hóa nhân loại là gì?",
+    dapAn: [
+      "Là văn hóa phương Đông, đặc biệt là văn hóa Ấn Độ, Trung Quốc",
+      "Là văn hóa phương Tây, đặc biệt là tư tưởng dân chủ tư sản",
+      "Là toàn diện bao gồm Đông, Tây, kim, cổ, tất cả các mặt, các khía cạnh",
+      "Là toàn diện bao gồm văn hóa phương Đông, phương Tây"
+    ],
+    dung: "C"
+  },
+  {
+    id: 549,
+    chuong: 6,
+    cauHoi: "Tiêu chí tiếp thu tinh hoa văn hóa nhân loại theo Hồ Chí Minh là gì?",
+    dapAn: [
+      "Tiếp thu cái gì hay, cái gì tốt của văn hóa nhân loại thì thì ta học lấy",
+      "Tiếp thu tất cả văn hóa nhân loại, không bỏ sót nền văn hóa nào",
+      "Chỉ tiếp thu các giá trị văn hóa Trung Quốc, Án Độ, Liên Xô",
+      "Tiếp thu có chọn lọc văn hóa nhân loại, nhưng chú trọng tiếp thu văn hóa các nước cùng chung chế độ xã hội chủ nghĩa"
+    ],
+    dung: "A"
+  },
+  {
+    id: 550,
+    chuong: 6,
+    cauHoi: "Đối với một quốc gia cần, kiệm, liêm, chính là thước đo sự giàu có về vật chất, vững mạnh về tinh thần, thể hiện (...) theo tư tướng của Hồ Chí Minh. Xác định cụm từ còn thiếu ?",
+    dapAn: [
+      "Sự tiến bộ, khoa học và là động lực của chế độ mới",
+      "Sự phong phú, đa dạng và là yêu cầu của đời sống mới",
+      "Sự văn minh, tiến bộ và là nền tảng của đời sống mới",
+      "Sự khoa học, văn minh và là cơ sở của đời sống mới 105"
+    ],
+    dung: "C"
+  },
+  {
+    id: 551,
+    chuong: 6,
+    cauHoi: "Vai trò của văn hóa văn nghệ trong quan điểm Hồ Chí Minh là gì?",
+    dapAn: [
+      "Nâng cao lòng yêu nước, tình cảm cách mạng, sự lạc quan, ý chí quyết tâm và niềm tin vào thắng lợi cuối cùng của cách mạng",
+      "Nâng cao tinh thần lạc quan, vui vẻ và niềm tin vào cách mạng",
+      "Là thang thuốc tinh thần vô giá, cổ vũ bộ đội trong kháng chiến",
+      "Giúp mọi người lạc quan, vui tươi trong cuộc sống và chiến đấu, lao động và học tập"
+    ],
+    dung: "A"
+  },
+  {
+    id: 552,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, văn hóa giáo dục có vai trò như thế nào?",
+    dapAn: [
+      "Giúp người học có kiến thức về chuyên môn, nghiệp vụ, có năng lực làm chủ",
+      "Diệt giặc dốt, xóa mà chữ, giúp con người hiểu biết quy luật phát triển xã hội",
+      "Giúp người học hiểu biết sâu sắc về lịch sử, địa lý dân tộc và thế giới",
+      "Nâng cao trình độ dân trí, đấu tranh chống các biểu hiện phản văn hóa"
+    ],
+    dung: "B"
+  },
+  {
+    id: 553,
+    chuong: 6,
+    cauHoi: "Với sứ mệnh trồng người, theo Hồ Chí Minh văn hóa giáo dục thực hiện nhiệm vụ gì?",
+    dapAn: [
+      "Đào tạo con người mới, cán bộ mới, nguồn nhân lực chất lượng cao cho sự nghiệp cách mạng",
+      "Đào tạo đội ngũ trí thức phát triển toàn diện cả đức, trí, thế, mỹ đáp ứng được yêu cầu sự nghiệp đấu tranh giải phóng dân tộc",
+      "Đào tạo con người Việt Nam giỏi về chuyên môn, nghiệp vụ đáp ứng được yêu cầu của sự nghiệp đổi mới đất nước",
+      "Cải tạo trí thức cũ, xây dựng trí thức mới, đáp ứng được yêu cầu, nhiệm vụ của sự nghiệp xây dựng chủ nghĩa xã hội"
+    ],
+    dung: "A"
+  },
+  {
+    id: 554,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, văn hóa đạo đức lối sống có vai trò như thế nào?",
+    dapAn: [
+      "Giúp giáo dục đạo đức cách mạng cần, kiệm, liêm, chính, chí công vô tư mỹ",
+      "Giúp nâng cao phẩm giá, phong cách, hướng con người tới giá trị chân, thiện,",
+      "Giúp xây dựng đời sống văn hóa lành mạnh, sống có ý thức bảo vệ môi trường",
+      "Giúp nâng cao người dân nâng cao ý thức xây dựng văn hóa, tích cực đấu tranh chống những biêu hiện phản văn hóa, phản tiến bộ"
+    ],
+    dung: "B"
+  },
+  {
+    id: 555,
+    chuong: 6,
+    cauHoi: "Để làm tròn nhiệm vụ \"phò chính trừ tà\" của mình, theo Hồ Chí Minh chiến sĩ nghệ thuật phải có lập trường như thế nào?",
+    dapAn: [
+      "Tư tưởng vững vàng, có cách lập luận vấn đề rõ ràng, khúc triết",
+      "Tư tường bám sát thực tiễn, ngòi bút phải sâu sắc, gần gũi với nhân dân",
+      "Tư tưởng vững vàng, bám sát thực tiễn; phê bình nghiêm khắc những thói hư tật xấu, ca tụng chân thật những người tốt, việc tốt",
+      "Tư tưởng vững vàng, luôn nghe và viết theo đời sống thực tiễn của quần chúng"
+    ],
+    dung: "C"
+  },
+  {
+    id: 556,
+    chuong: 6,
+    cauHoi: "Văn hóa phải gắn với thực tiễn đời sống của nhân dân. Để làm được như vậy, Hồ Chí Minh đã khẳng định các văn nghệ sĩ phải:",
+    dapAn: [
+      "Thật sự giác ngộ, tin tưởng vào quần chúng,v.v..để thấu hiểu tâm tư, tình cảm và nguyện vọng của nhân dân",
+      "Thật hòa mình vào quần chúng, v.v. để hiểu thấu tâm tư, tình cảm, nguyện vọng của nhân dân",
+      "Thật thà, dũng cảm, đoàn kết quần chúng thành một khối, v.v.. để hiểu thấu tâm tư, tình cảm, nguyện vọng của nhân dân",
+      "Thật tin tưởng, yêu dân, kính dân, v.v..để thấu hiểu tâm tư, tình cảm, nguyện vọng của nhân dân"
+    ],
+    dung: "B"
+  },
+  {
+    id: 557,
+    chuong: 6,
+    cauHoi: "Tính đại chúng của nền văn hóa theo quan điểm Hồ Chí Minh được thể hiện ở những việc nào?",
+    dapAn: [
+      "Phải phục vụ dân tộc và do dân tộc xây dựng nên",
+      "Phải phục vụ nhân dân và do nhân dân xây dựng nên",
+      "Phải phục vụ đồng bào và do đồng bào xây dựng nên",
+      "Phải phục vụ quần chúng và do quần chúng xây dựng nên"
+    ],
+    dung: "B"
+  },
+  {
+    id: 558,
+    chuong: 6,
+    cauHoi: "Trong thời kì xây dựng chủ nghĩa xã hội ở miền Bắc, Hồ Chí Minh chủ trương xây dựng nền văn hóa như thế nào?",
+    dapAn: [
+      "Có nội dung xã hội chủ nghĩa và tính chất dân tộc",
+      "Có nội dung xã hội chủ nghĩa và tính chất thời đại",
+      "Có nội dung tư bản chủ nghĩa và tính chất thời đại",
+      "Có nội dung tư bản chủ nghĩa và tính chất dân tộc"
+    ],
+    dung: "A"
+  },
+  {
+    id: 559,
+    chuong: 6,
+    cauHoi: "Để giữ gìn bản sắc văn hóa dân tộc, theo Hồ Chí Minh trách nhiệm của con người Việt Nam là cần phải làm gì?",
+    dapAn: [
+      "Biết kết thừa, chọn lọc những cái hay của văn hóa các dân tộc thiểu số và tích cực hội nhập, giao lưu văn quốc tế *",
+      "Xây dựng nền văn hóa mới trên cơ sở kế thừa, tiếp thu những giá trị văn hóa đông, tây để làm giàu bản sắc văn hóa dân tộc",
+      "Phải trân trọng, khai thác, giữ gìn, phát huy, phát triển những giá trị của văn hóa dân tộc, đáp ứng yêu cầu, nhiệm vụ từng giai đoạn cách mạng",
+      "Tích cực đấu tranh chống những biểu hiện phản văn hóa, phản tiến bộ, đặc biệt là các hủ tục, mê tính, dị đoan"
+    ],
+    dung: "C"
+  },
+  {
+    id: 560,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh rất quan tâm đến giáo dục toàn diện cho các em học sinh, sinh viên cả về \"Đức, trí, thể, mỹ\". Trong đó, đức được xác định bao gồm:",
+    dapAn: [
+      "Nếp ăn ở, sinh hoạt hàng ngày, trước hết là với giã đình, anh em, bạn bè, rộng ra là với quốc gia, dân tộc; học để làm việc, làm người, làm cán bộ",
+      "Nếp ăn ở, khả năng vượt lên khó khăn, thử thách để đạt được mục tiêu trong cuộc sống",
+      "Nếp ăn ở, ý thức tự lực, tự cường, khát vọng vươn lên để khẳng định những giá trị bản thân trong học tập, lao động",
+      "Nếp ăn ở, học tập, sinh hoạt, lao động, học biết chán, luôn có ý thức thi đua trong học tập"
+    ],
+    dung: "A"
+  },
+  {
+    id: 561,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, đạo đức là nhân tố tạo nên sự hấp dẫn của chủ nghĩa xã hội bắt nguồn trước hết từ đâu?",
+    dapAn: [
+      "Những giá trị đạo đức cao đẹp, mức sống vật chất dồi dào của những người cộng sản ưu tú",
+      "Những giá trị đạo đức cao đẹp, tự tưởng tự do giải phóng của những người cộng sản ưu tú",
+      "Những giá trị đạo đức cao đẹp, phẩm chất của những người cộng sản ưu tú",
+      "Những giá trị đạo đức cao đẹp, lối sống mới của những người cộng ưu tú"
+    ],
+    dung: "C"
+  },
+  {
+    id: 562,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, trung với nước là phải làm gì?",
+    dapAn: [
+      "Yêu nước, xây dựng đất nước giàu mạnh, dân chủ, công bằng, văn minh",
+      "Yêu nước, đấu tranh chống các âm mưu của các thế lực thủ địch chống phá sự nghiệp cách mạng",
+      "Yêu nước, sẵn sàng hy sinh bản thân cho sự nghiệp đổi mới đất nước và hội nhập quốc tế",
+      "Yêu nước, tuyệt đối trung thành với Tổ quốc, suốt đời phấn đấu cho Đảng, cho cách mạng"
+    ],
+    dung: "D"
+  },
+  {
+    id: 563,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, hiếu với dân là phải làm gì?",
+    dapAn: [
+      "Khai dân trí, chấn dân khí, hậu dân sinh, mở mang dân quyền",
+      "Dân biết, dân bàn, dân làm, dân kiểm tra và dân thụ hướng gốc",
+      "Thương dân, tin dân, thân dân, học hòi dân, kính trọng nhân dân, lây dân làm",
+      "Phát huy quyền làm chủ của nhân dân, pháp luật phải đảm bảo quyền con người được thi trong thực tế"
+    ],
+    dung: "C"
+  },
+  {
+    id: 564,
+    chuong: 6,
+    cauHoi: "Chuẩn mực đạo đức nào được Hồ Chí Minh xác định là nội dung cốt lõi của đạo đức cách mạng gắn liền với hoạt động hằng ngày của mỗi người?",
+    dapAn: [
+      "Trung với nước, hiếu với dân",
+      "Cần, kiệm, liêm, chính, chí công vô tư",
+      "Yêu thương con người, sống có tình có nghĩa",
+      "Có tinh thần quốc tế trong sáng"
+    ],
+    dung: "B"
+  },
+  {
+    id: 565,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh khẳng định, chí công vô tư là công bằng, công tâm, không thiên tư thiên vị, làm việc gì cũng không nghĩ đến mình trước, chỉ biết vì Đảng, vì dân tộc, \"lo trước thiên hạ, vui sau thiên hạ\" có nghĩa là gì?",
+    dapAn: [
+      "Nêu cao chủ nghĩa tập thể, trừ bỏ chủ nghĩa cá nhân",
+      "Nêu cao tinh thần tự chủ, tự chịu trách nhiệm trước nhân dân",
+      "Lấy lợi ích của cá nhân đặt lên trên lợi ích của tập thể",
+      "Nêu cao chế độ làm chủ tập thể, trừ bỏ chế độ tư hữu tư nhân"
+    ],
+    dung: "A"
+  },
+  {
+    id: 566,
+    chuong: 6,
+    cauHoi: "Yêu thương con người được Hồ Chí Minh xác định là một trong những phẩm chất đạo đức cao đẹp nhất. Tình yêu thương đó là một tình cảm rộng lớn, trước hết dành cho những người như thế nào?",
+    dapAn: [
+      "Nghèo khổ, bị mất quyền, bị áp bức, bóc lột...",
+      "Nghèo khổ, bị mất quyền tự do, dân chủ...",
+      "Nghèo khổ, bị mất quyền lãnh thổ, quyền tự quyết...",
+      "Nghèo khổ, bị mất quyền chính trị, quyền liên hiệp..."
+    ],
+    dung: "A"
+  },
+  {
+    id: 567,
+    chuong: 6,
+    cauHoi: "Nói đi đôi với làm được Hồ Chí Minh coi là nguyên tắc như thế nào?",
+    dapAn: [
+      "Quan trọng bậc nhất trong xây dựng nhân cách công dân",
+      "Quan trọng bậc nhất trong xây dựng một nền đạo đức mới",
+      "Quan trọng bậc nhất trong xây dựng phẩm chất của người quân tử",
+      "Quan trọng bậc nhất trong xây dựng lối sống xã hội chủ nghĩa"
+    ],
+    dung: "B"
+  },
+  {
+    id: 568,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh chỉ rõ: \"Nói chung thì các dân tộc phương Đông đều giàu tình cảm, và đối với họ một tấm gương sống còn có giá trị hơn một trăm bài diễn văn tuyên truyền\"™), điều này muốn nhấn mạnh nguyên tắc nào trong xây dựng đạo đức mới?",
+    dapAn: [
+      "Nói phải đi đôi với làm gắn liền với nêu gương về đạo đức",
+      "Xây đi đôi với chống",
+      "Phải tu dưỡng đạo đức suốt đời",
+      "Phải tạo phong trào rộng rãi"
+    ],
+    dung: "A"
+  },
+  {
+    id: 569,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, vấn đề quan trọng trong việc giáo dục đạo đức là:",
+    dapAn: [
+      "Khơi dậy ý thức, tiềm năng, sức mạnh và ý thức tự giác của mỗi người",
+      "Khơi dậy ý thức đạo đức lành mạnh ở mỗi người, để mọi người tự giác nhận thức được trách nhiệm đạo đức của mình",
+      "Khơi dậy trách nhiệm, năng lực và ý thức tự giác tu dưỡng của mỗi người",
+      "Khơi dậy tiềm năng, sự phấn đấu bền bỉ và năng lực tự giác của mỗi người"
+    ],
+    dung: "B"
+  },
+  {
+    id: 570,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, trên con đường đi tới tiến bộ và cách mạng, đạo đức mới chỉ có thế xây dựng thành công trên cơ sở nào ?",
+    dapAn: [
+      "Kiên trì mục tiêu chống chủ nghĩa đế quốc và những thói hư tật xấu",
+      "Kiên trì mục tiêu độc lập dân tộc và rèn luyện đạo đức",
+      "Kiên trì mục tiêu chống chủ nghĩa để quốc, chống thói quen và tập tục lạc hậu, loại trử chủ nghĩa cá nhân",
+      "Kiên trì mục tiêu đấu tranh chống chủ nghĩa đế quốc và xây dựng chủ nghĩa xã hội"
+    ],
+    dung: "C"
+  },
+  {
+    id: 571,
+    chuong: 6,
+    cauHoi: "Hồ Chí Minh giải thích chữ Người như thế nào ?",
+    dapAn: [
+      "Nghĩa hẹp là gia đình, anh em, họ hàng, bè bạn; nghĩa rộng là đồng bào cả nước; rộng hơn nữa là cả loài người",
+      "Nghĩa hẹp là cá nhân, anh em, bè bạn; nghĩa rộng là đồng bào cả nước; rộng hơn nữa là cả loài người hơn nữa là cả loài người",
+      "Nghĩa hẹp là cá nhân; nghĩa rộng là gia đình, anh em, họ hàng, bè bạn; rộng người",
+      "Nghĩa hẹp là cá thể; nghĩa rộng là đồng bào cả nước; rộng hơn nữa là cả loài"
+    ],
+    dung: "A"
+  },
+  {
+    id: 572,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, tính xã hội của con người được hiểu như thế nào ?",
+    dapAn: [
+      "Là con người xã hội, thành viên của một cộng đồng xã hội",
+      "Là cá nhân sống trong xã hội, có trách nhiệm với xã hội",
+      "Là thành viên của xã hôi, chịu sự tác động từ những mặt trái của xã hội",
+      "Là thành viên của xã hội, bị ảnh hưởng bởi môi trường xã hội"
+    ],
+    dung: "A"
+  },
+  {
+    id: 573,
+    chuong: 6,
+    cauHoi: "Khi nêu ra những hiểu biết về yếu tố sinh vật của con người, Hồ Chí Minh khẳng định mọi đường lối, chủ trương, chính sách, nhiệm vụ của Đảng, Nhà nước cần phải thực hiện nay là gì ?",
+    dapAn: [
+      "Làm cho dân có cuộc sống ấm no, không có áp bức, bất công",
+      "Làm cho dân được tự do, sống một đời hạnh phúc",
+      "Làm cho dân có ăn, có mặt, có chỗ ở, có học hành",
+      "Làm cho dân được sống bình đẳng, chống phân biệt giàu, nghèo"
+    ],
+    dung: "C"
+  },
+  {
+    id: 574,
+    chuong: 6,
+    cauHoi: "Nét đặc sắc trong nhìn nhận đặc điểm con người Việt Nam với những điều kiện lịch sử cụ thể, với cấu trúc kinh tế, xã hội cụ thể của Hồ Chí Minh, giúp giải quyết mối quan hệ gì một cách sáng tạo ?",
+    dapAn: [
+      "Dân tộc và giai cấp",
+      "Cá nhân và cộng đồng",
+      "Cá nhân và xã hội",
+      "Dân tộc và nhân loại"
+    ],
+    dung: "A"
+  },
+  {
+    id: 575,
+    chuong: 6,
+    cauHoi: "Con người trong tư tưởng và hành động của Hồ Chí Minh là chiến lược số một. Điều đó, được cụ thể hóa trong những giai đoạn nào của cách mạng Việt Nam?",
+    dapAn: [
+      "Giải phóng dân tộc - Xây dựng chế độ dân chủ nhân dân - Tiến dần lên chủ nghĩa xã hội",
+      "Giải phóng con người - Xây dựng chế độ dân chủ nhân dân - Tiến dần lên chủ nghĩa xã hội",
+      "Giải phóng giai cấp - Xây dựng chế độ dân chủ nhân dân - Tiến dần lên chủ nghĩa xã hội",
+      "Giải phóng lực lượng sản xuất - Xây dựng chế độ dân chủ nhân dân - Tiến lên chủ nghĩa xã hội"
+    ],
+    dung: "A"
+  },
+  {
+    id: 576,
+    chuong: 6,
+    cauHoi: "Con người là mục tiêu của cách mạng, tức là hướng tới giải phóng dân tộc, giải phóng giai cấp, giải phóng xã hội, giải phóng con người. Theo Hồ Chí Minh, các giải phóng đó có mối quan hệ với nhau như thế nào ?",
+    dapAn: [
+      "Kết hợp chặt chẽ, đồng thời nối tiếp nhau",
+      "Kết hợp chặt chẽ, đồng thời bổ sung cho nhau",
+      "Kết hợp hài hòa, đồng thời bổ sung cho nhau",
+      "Kết hợp chặt chẽ, đồng thời tác động qua lại với nhau"
+    ],
+    dung: "D"
+  },
+  {
+    id: 577,
+    chuong: 6,
+    cauHoi: "Ý nghĩa của việc xây dựng con người theo Hồ Chí Minh là gì ?",
+    dapAn: [
+      "Một trọng tâm, một bộ phận hợp thành của chiến lược phát triển đất nước",
+      "Một trọng tâm, một bộ phận hợp thành của Đảng về phát triển kinh tế",
+      "Một trọng tâm, một bộ phận hợp thành của Nhà nước về phát triển kinh tế",
+      "Một trọng tâm, một bộ phận hợp thành của Mặt trận Tổ quốc Việt Nam về phát triển văn hóa xã hội"
+    ],
+    dung: "A"
+  },
+  {
+    id: 578,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh \"Trồng người\" phải được tiến hành như thế nào?",
+    dapAn: [
+      "Liên tục, xem đó là thước đo cho trình độ phát triển của lực lượng sản xuất",
+      "Thường xuyên trong suốt tiến trình đi lên chủ nghĩa xã hội và phải đạt được những kết quả cụ thể trong từng giai đoạn cách mạng",
+      "Liên tục trong suốt quá trình đổi mới và hội nhập kinh tế quốc tế",
+      "Tiến hành thường xuyên trong suốt tiến trình đấu tranh giải phóng dân tộc, cũng như quá trình đổi mới đất nước"
+    ],
+    dung: "B"
+  },
+  {
+    id: 579,
+    chuong: 6,
+    cauHoi: "Công việc trồng người, theo Hồ Chí Minh là trách nhiệm của ai?",
+    dapAn: [
+      "Là trách nhiệm riêng của Đảng, Nhà nước",
+      "Là trách nhiệm riêng của cá nhân, đoàn thể chính trị - xã hội",
+      "Của Đảng, Nhà nước, các đoàn thể chính trị - xã hội kết hợp với tính tích cực, chủ động của từng người",
+      "Của Đảng, Nhà nước, các tổ chức quốc tế, đặc biệt là trách nhiệm của các cơ quan, ban ngành thực hiện nhiệm vụ trên lĩnh vực giáo dục"
+    ],
+    dung: "C"
+  },
+  {
+    id: 580,
+    chuong: 6,
+    cauHoi: "Trong mối quan hệ biện chứng giữa chủ nghĩa xã hội và con người xã hội chủ nghĩa, theo Hồ Chí Minh chủ nghĩa xã hội tạo ra những con người xã hội chủ nghĩa, con người xã hội chủ nghĩa là:",
+    dapAn: [
+      "Động lực xây dựng chủ nghĩa xã hội",
+      "Mục tiêu xây dựng chủ nghĩa xã hội",
+      "Tiêu chuẩn xây dựng chủ nghĩa xã hội",
+      "Thước đo xây dựng chủ nghĩa xã hội"
+    ],
+    dung: "A"
+  },
+  {
+    id: 581,
+    chuong: 6,
+    cauHoi: "Trong xây dựng con người, Hồ Chí Minh chủ trương xây dựng con người toàn diện theo các khía cạnh nào sau đây ?",
+    dapAn: [
+      "Có ý thức tập thể, yêu nước, tiến bộ, có lý tưởng, sống có trách nhiệm",
+      "Có ý thức làm chủ, yêu nước, thương dân, có trí tuệ và bản lĩnh vững vàng",
+      "Có ý thức làm chủ, tinh thần thập thể, cần kiệm, hăng hái bảo vệ Tổ quốc; có lòng yêu nước, phương pháp làm việc khoa học, dân chủ, nêu gương",
+      "Có lòng yêu nước nồng nàn, có chí tiến thủ, có ý thức bảo vệ Tổ quốc"
+    ],
+    dung: "C"
+  },
+  {
+    id: 582,
+    chuong: 6,
+    cauHoi: "Vận dụng tư tưởng Hồ Chí Minh về vai trò của văn hóa, Nghị quyết Hội nghị lần thứ 5 Ban chấp hành Trung ương khóa VIII về xây dựng và phát triển văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc đã xác định:",
+    dapAn: [
+      "Văn hóa là nên tảng tinh thần của xã hội, vừa là mực tiêu vừa là động lực thúc đẩy sự phát triển kinh tế - xã hội",
+      "Văn hóa là giá trị tinh thần của xã hội, văn hóa giúp giáo dục, đào tạo con người đáp ứng yêu cầu của sự nghiệp đổi mới",
+      "Văn hóa là trung tâm của sự phát triển, quan tâm phát triển văn hóa toàn diện trở thành nền tảng tinh thần của xã hội",
+      "Coi trọng phát triển văn hóa, văn nghệ, làm văn hóa trở thành động lực thúc đẩy sự phát triển kinh tế - xã hội"
+    ],
+    dung: "A"
+  },
+  {
+    id: 583,
+    chuong: 6,
+    cauHoi: "Trong Cương lĩnh xây dựng đất nước trong thời kỳ quá độ lên chủ nghĩa xã hội (bổ sung, phát triển năm 2011) đã khẳng định như thế nào về yếu tố con người theo tư tưởng Hồ Chí Minh?",
+    dapAn: [
+      "Xây dựng con người làm chủ thể quyết định thành công sự nghiệp đổi mới và hội nhập quốc tế",
+      "Con người vừa là mục tiêu, vừa là động lực của sự nghiệp đổi mới",
+      "Con người được quan tâm phát triển toàn diện về đức, trí, thể, mỹ",
+      "Con người là trung tâm của chiến lược phát triển, đồng thời là chủ thể phát triển"
+    ],
+    dung: "D"
+  },
+  {
+    id: 584,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, thế hệ trẻ Việt Nam có vai trò như thế nào?",
+    dapAn: [
+      "Là người tiên phong trong học tập, lao động, quyết định đên thăng lợi của sự nghiệp đấu tranh giải phóng dân tộc",
+      "Là người chủ tương lai của nước nhà; nước nhà thịnh hay suy, yếu hay mạnh một phần lớn là do các thanh niên",
+      "Người đi đầu trong xây dựng, bảo vệ Tổ quốc; chủ động học tập để trở thành nhing cong dan toan can",
+      "Người có trình độ học vân cao; có công hiên quan trọng trong sự nghiệp đổi mới và hội nhập quốc tế"
+    ],
+    dung: "B"
+  },
+  {
+    id: 585,
+    chuong: 6,
+    cauHoi: "Học tập đạo đức cách mạng Hồ Chí Minh, người Việt Nam trong thời đại mới trước hết phải học những gì ?",
+    dapAn: [
+      "Học cần, kiệm, liêm, chính, chí công vô tư",
+      "Học trung với nước, hiếu với dân, suốt đời đấu tranh cho sự nghiệp cách mạng",
+      "Học kính trọng nhân dân",
+      "Ý chí nghị lực, quyết tâm vượt qua mọi thử thách"
+    ],
+    dung: "B"
+  },
+  {
+    id: 586,
+    chuong: 6,
+    cauHoi: "Trong thời kì đổi mới, đi vào nền kinh tế thị trường định hướng xã hội chủ nghĩa, một nền đạo đức mới đang hình thành. Phần lớn sinh viên Việt Nam vẫn giữ được những phẩm chất đạo đức như thế nào?",
+    dapAn: [
+      "Yêu nước, thương dân, nhân hậu, nghĩa tình, khoan dung, khiêm tốn",
+      "Biết chịu trách nhiệm, sáng tạo trong công việc, năng động trong cuộc sống",
+      "Nhân hậu, tình nghĩa, khiêm tốn, luôn cần cù, sáng tạo trong học tập, có chí lập thân, lập nghiệp, dám chịu trách nhiệm, không ỷ lại, bản lĩnh",
+      "Trong sạch, lành mạnh, khiêm tồn, sáng tạo, có lý tưởng, bảm lĩnh"
+    ],
+    dung: "C"
+  },
+  {
+    id: 587,
+    chuong: 6,
+    cauHoi: "Việc học tập tư tưởng, tấm gương đạo đức Hồ Chí Minh đối với sinh viên là tất yếu bởi trong thời kì đối mới một bộ phận sinh viên hiện nay còn có những biếu hiện tiêu cực nào sau đây?",
+    dapAn: [
+      "Phai nhạt niềm tin, lý tưởng sống Không có chí lập thân, lập nghiệp",
+      "Phai nhạt niềm tin, lý tưởng thiếu trách nhiệm, thờ ơ với gia đình, xã hội...",
+      "Tham nhũng, lãng phí, quan liêu D. Sống buông thả, không xác định được mục tiêu lập thân, lập nghiệp",
+      "Sống buông thả, không xác định được mục tiêu lập thân, lập nghiệp"
+    ],
+    dung: "B"
+  },
+  {
+    id: 588,
+    chuong: 6,
+    cauHoi: "Học tập và làm theo đạo đức Hồ Chí Minh là đòi hỏi của sự nghiệp cách mạng, sự nghiệp đổi mới toàn diện đất nước và hội nhập quốc tế, nhằm làm cho: chủ đất nước",
+    dapAn: [
+      "Mỗi người trở thành những công dân tốt hơn, xứng đáng là người làm đất nước",
+      "Mỗi người trở thành những cán bộ tốt hơn, xứng đáng là người làm chủ",
+      "Mỗi người trở thành những thành viên tốt hơn, xứng đáng là người làm chủ đất nước",
+      "Mỗi người trở thành những cá nhân tốt hơn, xứng đáng là người làm chủ đất nước"
+    ],
+    dung: "A"
+  },
+  {
+    id: 589,
+    chuong: 6,
+    cauHoi: "Xác định cụm từ còn thiếu vào câu nói sau của Hồ Chí Minh: \"Một ngày mà Tổ Quốc chưa thống nhất, đồng bào còn chịu khổ, là một ngày tôi 99782 (...)",
+    dapAn: [
+      "Ăn không ngon, ngủ không sâu",
+      "Ngủ không ngon, ngủ không được",
+      "Ăn không ngon, ngủ không yên",
+      "Ăn không ngon, ngủ không ngon"
+    ],
+    dung: "C"
+  },
+  {
+    id: 590,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, mọi người dân Việt Nam đều có ý thức dân tộc, trong đó đặc biệt là sinh viên, trách nhiệm của họ là phải:",
+    dapAn: [
+      "Vun đắp tinh thần dân tộc, có tinh thần quốc tế trong sáng",
+      "Ý thức trách nhiệm với Tổ Quốc thân yêu, biết vun đắp tinh thần dân tộc, tự giác, tích cực thực hiện trách nhiệm của mình",
+      "Có ý thức trách nhiệm cao, có lòng tự hào dân tộc, không ngừng đầu tranh chống tiêu cực",
+      "Có khắt vọng vươn lên, thắng không kiêu, bại không nản, phấn đấu làm giâu chính đáng"
+    ],
+    dung: "B"
+  },
+  {
+    id: 591,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh, phải luôn nhân ái, vị tha, bao dung với con người, tình yêu thương ấy phải gắn với:",
+    dapAn: [
+      "Niềm tin tuyệt đối vào sức mạnh và trí tuệ nhân dẫn",
+      "Niềm tin vào trí tuệ và lòng nhân ái của con người",
+      "Niềm tin vào sức mạnh và lòng trung thực của con người",
+      "Niêm tin vào trí tuệ và phẩm giá con người"
+    ],
+    dung: "A"
+  },
+  {
+    id: 592,
+    chuong: 6,
+    cauHoi: "Để học tập theo tư tưởng, đạo đức, phong cách Hồ Chí Minh, sinh viên Việt cần phải:",
+    dapAn: [
+      "Thi đua phần đầu rèn luyện vì ngày mai lập nghiệp",
+      "Thi đua học tập, rèn luyện vì ngày mai lập nghiệp",
+      "Thi đua phấn đấu học tập vì ngày mai lập nghiệp",
+      "Thi đua phấn đấu tích cực rèn luyện vì ngày mai tươi sáng"
+    ],
+    dung: "B"
+  },
+  {
+    id: 593,
+    chuong: 6,
+    cauHoi: "Theo Hồ Chí Minh \"Muốn xây dựng chủ nghĩa xã hội, trước hết cần phải có những con người xã hội chủ nghĩa\" có nghĩa là:",
+    dapAn: [
+      "Xây dựng kinh tế, văn hóa cao mới xây dựng con người",
+      "Xây dựng con người xã hội chủ nghĩa xong mới xây dựng chủ nghĩa xã hội",
+      "Xây dựng con người phải được đặt ra ngay từ đầu và trong suốt tiến trình xây dựng chủ nghĩa xã hội dựng chủ nghĩa xã hội",
+      "Xây dựng chế độ chính trị do nhân dân làm chủ, nhân dân là chủ thể xây"
+    ],
+    dung: "C"
+  },
+  {
+    id: 594,
+    chuong: 6,
+    cauHoi: "Chủ để nào sau đây là chủ đề học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh trong đoàn viên, thanh niên năm 2020?",
+    dapAn: [
+      "\"Học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh về tinh thần học tập suốt đời\"",
+      "\"Thực hành tiết kiệm, chống lãng phí theo tư tưởng, đạo đức, phong cách Hồ Chí Minh\"",
+      "\"Học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh về trách nhiệm, trung thực, nói đi đôi với làm\"",
+      "\"Học tập và làm theo tư tưởng và tấm gương mẫu mực của Hồ Chí Minh về tu dưỡng đạo đức suốt đời\""
+    ],
+    dung: "D"
+  }
+];
+
+fs.writeFileSync('src/data/chapter6.json', JSON.stringify(ch6, null, 2));
+console.log('Chapter 6 written:', ch6.length, 'questions');

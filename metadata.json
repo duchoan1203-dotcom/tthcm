@@ -1,0 +1,6 @@
+{
+  "name": "Ôn Thi Tư Tưởng Hồ Chí Minh",
+  "description": "Ứng dụng ôn tập và kiểm tra trắc nghiệm môn Tư tưởng Hồ Chí Minh đầy đủ 475 câu hỏi trắc nghiệm chia theo 6 chương, phân tích thuộc bài và theo dõi streak hàng ngày.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
